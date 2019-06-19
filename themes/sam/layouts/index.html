@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {{ partial "head.html" . }}
+        <title>{{ .Title }}</title>
+    </head>
+    <body>
+        <div class="section" id="splash">
+
+
+                {{ range .Site.Params.mainMenu }}
+                    <div class="big-link">
+                        <a href="{{.link}}">
+                            {{.text}}
+                        </a>
+                    </div>
+                {{ end }}
+            
+        </div>
+    </body>
+</html>
