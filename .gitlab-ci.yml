@@ -5,8 +5,7 @@ variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
 before_script:
-  - apt-get update
-  - apt-get install npm
+  - apk add --update nodejs
   - npm install postcss-cli  
 
 test:
