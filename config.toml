@@ -57,7 +57,7 @@ pygmentCodeFences = true
   keybase = "username"
 
 [[Params.mainMenu]]
-    link = "/post"
+    link = "/posts"
     text = "writing"
 
 [[Params.mainMenu]]
