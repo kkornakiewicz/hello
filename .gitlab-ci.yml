@@ -12,7 +12,6 @@ test:
 
 pages:
   script:
-  - npm install postcss-cli
   - hugo
   artifacts:
     paths:
