@@ -4,11 +4,10 @@
     <ul>
         {{ range .Data.Pages }}
         <li>
-            {{ if .Params.showDate }}
+            {{ if .Page.Site.Params.showDate }}
+            {{ .Date.Format (.Site.Params.dateForm | default "Jan, 2006")}} -
 
-            {{ .Date.Format (.Site.Params.dateForm | default "Mon Jan 02, 2006")}} --
-
-            {{ end }}
+            {{ end }} 
             <a href="{{.Permalink}}">
                 {{.Title}}
             </a>
