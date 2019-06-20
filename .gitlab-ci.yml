@@ -6,7 +6,7 @@ variables:
 
 before_script:
   - apk add --update npm
-  - npm install postcss-cli  
+  - npm install postcss-cli autoprefixer
 
 test:
   script:
