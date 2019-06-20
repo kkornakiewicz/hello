@@ -1,0 +1,7 @@
+    <div id="{{ .Get "name" }}"></div>
+
+    <script src="../../js/elm/{{ .Get "name" }}.js"></script>
+    <script>
+        var app = Elm.Main.init({
+        node: document.getElementById('{{ .Get "name" }}')
+  });    </script>
