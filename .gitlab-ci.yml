@@ -1,13 +1,11 @@
 # All available Hugo versions are listed here: https://gitlab.com/pages/hugo/container_registry
-image: registry.gitlab.com/pages/hugo/hugo_extended:latest
+image: dettmering/hugo-build
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
 test:
   script:
-  - apt-get install npm
-  - npm install postcss-cli
   - hugo
   except:
   - master
