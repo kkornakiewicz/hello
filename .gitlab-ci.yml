@@ -6,12 +6,14 @@ variables:
 
 test:
   script:
+  - npm install postcss-cli
   - hugo
   except:
   - master
 
 pages:
   script:
+  - npm install postcss-cli
   - hugo
   artifacts:
     paths:
