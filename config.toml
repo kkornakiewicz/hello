@@ -7,7 +7,7 @@ title = "notation as a tool of thought"
 canonifyurls  = true
 
 DefaultContentLanguage = "en"
-theme = "sam"
+theme = ["sam","hugo-cloak-email"]
 metaDataFormat = "yaml"
 pygmentsUseClasses = true
 pygmentCodeFences = true
