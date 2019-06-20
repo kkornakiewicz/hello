@@ -1,5 +1,5 @@
 ---
-title: Dear diary
+title: First post
 date: 2015-01-27
 ---
 
