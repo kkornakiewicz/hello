@@ -7,6 +7,3 @@ A few months ago European Parliament have voted to end magical practice of "dayl
 
 Here is a map:
 {{< elm-app name="sunset">}}
-
-
-Blah, blah, blah... Blah, blah, blah... Blah, blah, blah... Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...Blah, blah, blah...
