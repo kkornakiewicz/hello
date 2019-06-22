@@ -4,7 +4,7 @@ date: 2019-06-19
 tags: ["elm", "data-visualisation"]
 ---
 
-_Although mobile should works too, for better experience, please view this post on desktop._
+_Although mobile should works too, please view this post on a desktop for better experience._
 
 ---
 
