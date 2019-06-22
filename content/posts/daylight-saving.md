@@ -14,6 +14,6 @@ Here is a map:
 
 Inspired by: [How living on the wrong side of a time zone can be hazardous to your health ](https://www.washingtonpost.com/business/2019/04/19/how-living-wrong-side-time-zone-can-be-hazardous-your-health/)
 
-[Sunset/sunrise time algorithm](https://edwilliams.org/sunrise_sunset_example.htm)
+[Sunset/sunrise time algorithm source](https://edwilliams.org/sunrise_sunset_example.htm)
 
-[Map template](https://commons.wikimedia.org/wiki/File:Gminy_Polski_wed%C5%82ug_rodzaju.svg)
+[Map template source](https://commons.wikimedia.org/wiki/File:Gminy_Polski_wed%C5%82ug_rodzaju.svg)
