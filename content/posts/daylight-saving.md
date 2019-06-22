@@ -4,6 +4,10 @@ date: 2019-06-19
 tags: ["elm", "data-visualisation"]
 ---
 
+_Although mobile should works too, for better experience, please view this post on desktop._
+
+---
+
 A few months ago European Parliament has voted to end magical practice of "daylight saving time". I created a simple visualisation of how susnet and sunrise time will differ depending on which timezone Poland will decide to keep. [TODO] 
 
 Here is a map:
