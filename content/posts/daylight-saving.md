@@ -4,11 +4,11 @@ date: 2019-06-19
 tags: ["elm", "data-visualisation"]
 ---
 
-_Although mobile should works too, please view this post on a desktop for better experience._
+_Although mobile should works too, for better experience please view this post on a desktop._
 
 ---
 
-A few months ago European Parliament has voted to end magical practice of "daylight saving time". I created a simple visualisation of how susnet and sunrise time will differ depending on which timezone Poland will decide to keep. [TODO] 
+A few months ago the European Parliament has voted to end magical practice of "daylight saving time". Poland is not a country big enough to really need more than one timezone, although outskirts can have up to one hour of a difference between their sunsets and sunrises. I created a simple visualisation of how susnet and sunrise time will differ depending on which timezone Poland (or our goverment) will decide to keep. [TODO] 
 
 Here is a map:
 {{< elm-app name="sunset">}}

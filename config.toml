@@ -58,7 +58,7 @@ pygmentCodeFences = true
 
 [[Params.mainMenu]]
     link = "/posts"
-    text = "writing"
+    text = "posts"
 
 [[Params.mainMenu]]
     link = "/contact"

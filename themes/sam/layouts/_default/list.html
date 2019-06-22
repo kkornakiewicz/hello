@@ -5,12 +5,12 @@
         {{ range .Data.Pages }}
         <li>
             <a href="{{.Permalink}}">
+                {{.Title}} &#183; 
 
-            {{ if .Page.Site.Params.showDate }}
-            {{ .Date.Format ( .Page.Site.Params.dateFormat | default "Jan, 2006")}} -
-
-            {{ end }} 
-                {{.Title}}
+                {{ if .Page.Site.Params.showDate }}
+                {{ .Date.Format ( .Page.Site.Params.dateFormat | default "Jan, 2006")}}
+    
+                {{ end }} 
             </a>
         </li>
         {{ end }}
