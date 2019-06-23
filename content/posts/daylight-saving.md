@@ -8,7 +8,6 @@ _Although mobile should work too, for better experience please view this post on
 
 ---
 
-Here is a map:
 {{< elm-app name="sunset">}}
 
 --- 
