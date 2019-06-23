@@ -1,5 +1,5 @@
-baseurl = ""
-relativeURLs = true
+baseurl = "https://kornakiewi.cz"
+# relativeURLs = true
 contentdir    = "content"
 layoutdir     = "layouts"
 publishdir    = "public"
