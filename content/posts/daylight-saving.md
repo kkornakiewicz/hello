@@ -8,7 +8,7 @@ _Although mobile should works too, for better experience please view this post o
 
 ---
 
-A few months ago the European Parliament has voted to end magical practice of "daylight saving time". Poland is not a country big enough to really need more than one timezone, although outskirts can have up to one hour of a difference between their sunsets and sunrises. I created a simple visualisation of how susnet and sunrise time will differ depending on which timezone Poland (or our goverment) will decide to keep. [TODO] 
+A few months ago the European Parliament has voted to end the magical practice of "daylight saving time". Poland is not a country big enough to really need more than one timezone, although outskirts can have up to one hour of a difference between their sunsets and sunrises. I created a simple visualisation of how sunset and sunrise time will differ depending on which timezone Poland will decide to keep. 
 
 Here is a map:
 {{< elm-app name="sunset">}}
