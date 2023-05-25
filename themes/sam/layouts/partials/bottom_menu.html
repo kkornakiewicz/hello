@@ -1,8 +1,5 @@
-{{ if or ((.Page.Site.Params.mainMenu) (.show_back_menu_item)) }}
 <hr />
 <p>
-{{ end }}
-
     {{ if .show_back_menu_item }}
         <a href="{{ .Page.Section | relURL }}">back</a>
         {{ if .Page.Site.Params.mainMenu }}
@@ -27,7 +24,6 @@
     {{ end }}
     &#183; 
     <a href="{{.Page.Site.BaseURL}}">
-        {{ .Page.Site.Params.homepage }}
     </a>
 {{ end }}
 </p>

@@ -12,4 +12,4 @@ I've spent quite a bit of time solving problems with Java and other JVM language
 This page is to share experiments and thoughts.
 
 You can catch me [here](https://www.linkedin.com/in/kornakiewicz/) or [here](https://gitlab.com/krnkcz).  
-Preferably, drop me an e-mail: {{< cloakemail "hi@krzysztof.kornakiewi.cz" >}}
+Preferably, drop me an e-mail:
