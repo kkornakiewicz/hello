@@ -6,7 +6,7 @@ tags: []
 Hi,  
 call me Krzysztof [/[ˈkʂɨʂtɔf]/](https://en.wikipedia.org/wiki/Help:IPA/Polish).  
 
-I am a programmer and IT consultant, based in Barcelona.  
+I am a software developer, based in Barcelona.  
 
 This page is to share experiments and thoughts.
 
