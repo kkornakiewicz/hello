@@ -3,7 +3,7 @@ baseurl = "https://kornakiewi.cz"
 contentdir    = "content"
 layoutdir     = "layouts"
 publishdir    = "public"
-title = "notation as a tool of thought"
+title = ""
 canonifyurls  = true
 
 DefaultContentLanguage = "en"
@@ -62,4 +62,4 @@ pygmentCodeFences = true
 
 [[Params.mainMenu]]
     link = "/contact"
-    text = "about / contact"
+    text = "contact"
