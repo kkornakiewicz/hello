@@ -10,6 +10,6 @@ In 2024, I began walking semi-seriously with the goal of covering every street i
 As of August 18th, I have walked approximately 1,450 km and completed 43% of all streets (and ramblas, carreteras, places, camins and others).
 
 
-![map](/progress.gif)*As of 18-08-2024*
+![map](/progress.gif)*Last update: 18-08-2024*
 
 
