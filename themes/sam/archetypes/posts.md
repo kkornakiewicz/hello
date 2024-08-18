@@ -4,5 +4,6 @@ date: {{ .Date }}
 showDate: true
 draft: true
 tags: ["blog","story"]
+contentList: false
 ---
 

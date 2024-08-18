@@ -14,6 +14,10 @@
     </div>
     {{ end }}
     <hr/>
+    {{ if .Params.contentList }}
+      {{ .TableOfContents }}
+
+    {{ end }}
     {{ .Content }}
 </div>
 {{ end }}
