@@ -11,8 +11,6 @@ theme = ["sam","hugo-cloak-email"]
 metaDataFormat = "yaml"
 pygmentsUseClasses = true
 pygmentCodeFences = true
-#disqusShortname = "XXX"
-#googleAnalytics = "XXX"
 
 [Params]
   subtitle = ""
