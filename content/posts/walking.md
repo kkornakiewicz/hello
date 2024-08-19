@@ -36,4 +36,6 @@ As of August 18th, I have walked approximately 1,450 km and completed 43% of all
 ## Progress map animation
 ![map](/progress.gif)
 
+# Next steps
+Lorem impsum.
 
