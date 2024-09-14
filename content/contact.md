@@ -4,7 +4,7 @@ tags: []
 ---
 
 Hi,  
-I am Krzysztof, a software engineer, currently based in Barcelona.  
+I am Krzysztof, I do this programming thing and currently live in Barcelona.  
 
 This page is to share experiments and thoughts.
 
