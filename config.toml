@@ -3,7 +3,7 @@ baseurl = "https://kornakiewi.cz"
 contentdir    = "content"
 layoutdir     = "layouts"
 publishdir    = "public"
-title = ""
+title = "kornakiewi.cz"
 canonifyurls  = true
 
 DefaultContentLanguage = "en"
