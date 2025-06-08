@@ -1,0 +1,26 @@
+{{ define "main" }}
+<div class="posts">
+    {{ $pages := where .Site.RegularPages "Type" "in" (slice "posts") }}
+    {{ $paginator := .Paginate $pages }}
+    
+    {{ range $paginator.Pages }}
+    <article class="post">
+        <div class="post-meta">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+            {{ with .Params.tags }}
+            <div class="post-tags">
+                {{ range . }}
+                <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="post-tag">{{ . }}</a>
+                {{ end }}
+            </div>
+            {{ end }}
+        </div>
+        <h2 class="post-title">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h2>
+    </article>
+    {{ end }}
+
+    {{ template "_internal/pagination.html" . }}
+</div>
+{{ end }} 

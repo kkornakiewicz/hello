@@ -1,0 +1,33 @@
+{{ define "main" }}
+<article class="post post-single">
+    <h1 class="post-title">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </h1>
+    
+    <div class="post-meta">
+        {{ if .Date }}
+        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+            {{ .Date.Format "2006-01-02" }}
+        </time>
+        {{ end }}
+        
+        {{ with .Params.tags }}
+        <span class="post-tags">
+            {{ range . }}
+            <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}">#{{ . | lower }}</a>
+            {{ end }}
+        </span>
+        {{ end }}
+    </div>
+
+    <div class="post-content">
+        {{ .Content }}
+    </div>
+
+    {{ if .Site.Config.Services.Disqus.Shortname }}
+    <div class="post-comments">
+        {{ template "_internal/disqus.html" . }}
+    </div>
+    {{ end }}
+</article>
+{{ end }} 

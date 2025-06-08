@@ -1,0 +1,12 @@
+name = "blog_theme"
+license = "MIT"
+description = "A theme"
+tags = ["blog"]
+features = ["blog", "responsive", "minimal"]
+min_version = "0.41.0"
+
+[author]
+  name = "Krzysztof Kornakiewicz"
+  homepage = "kornakiewi.cz"
+
+theme = "sam_2" 

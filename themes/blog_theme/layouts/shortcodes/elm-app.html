@@ -1,0 +1,17 @@
+<div class="section" id="{{ .Get "name" }}">Loading...</div>
+
+<script src="../../js/elm/{{ .Get "name" }}.js"></script>
+<script>
+    var app = Elm.Main.init({
+        node: document.getElementById('{{ .Get "name" }}')
+    });
+</script>
+
+<style>
+    .elm-app-container {
+        margin: 2rem 0;
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+</style> 

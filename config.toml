@@ -7,7 +7,7 @@ title = ""
 canonifyurls  = true
 
 DefaultContentLanguage = "en"
-theme = ["sam","hugo-cloak-email"]
+theme = ["blog_theme"]
 metaDataFormat = "yaml"
 pygmentsUseClasses = true
 pygmentCodeFences = true

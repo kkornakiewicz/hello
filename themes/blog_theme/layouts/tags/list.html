@@ -1,0 +1,42 @@
+{{ define "main" }}
+<div class="posts">
+    <h1>{{ .Title | lower }}</h1>
+    
+    {{ $pages := where .Pages "Type" "in" (slice "posts") }}
+    {{ $paginator := .Paginate $pages }}
+    
+    {{ range $paginator.Pages }}
+    <article class="post">
+        <div class="post-meta">
+            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                {{ .Date.Format "2006/01" }}
+            </time>
+            {{ with .Params.tags }}
+            <div class="post-tags">
+                {{ range . }}
+                <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}" class="post-tag">{{ . | lower }}</a>
+                {{ end }}
+            </div>
+            {{ end }}
+        </div>
+        <h2 class="post-title">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h2>
+    </article>
+    {{ end }}
+
+    {{ if gt $paginator.TotalPages 1 }}
+    <div class="pagination">
+        {{ if $paginator.HasPrev }}
+        <a href="{{ $paginator.Prev.URL }}" class="pagination-prev">&larr; Previous</a>
+        {{ end }}
+        
+        <span class="pagination-current">Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}</span>
+        
+        {{ if $paginator.HasNext }}
+        <a href="{{ $paginator.Next.URL }}" class="pagination-next">Next &rarr;</a>
+        {{ end }}
+    </div>
+    {{ end }}
+</div>
+{{ end }} 

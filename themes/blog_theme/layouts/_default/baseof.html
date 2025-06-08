@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en-us" }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    {{ $style := resources.Get "sass/main.scss" | css.Sass | resources.Minify }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+    
+    {{ if .Site.Params.favicon }}
+    <link rel="icon" href="{{ .Site.Params.favicon | relURL }}">
+    {{ end }}
+
+    <!-- Analytics -->
+    <script defer data-domain="kornakiewi.cz" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+    <div class="hamburger-menu">
+        <button class="hamburger-button" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="hamburger-nav">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <header class="nav">
+        <div class="container">
+            <nav>
+                {{ range .Site.Menus.main }}
+                <a href="{{ .URL }}">{{ .Name }}</a>
+                {{ end }}
+            </nav>
+            <a href="/" class="nav-separator">...</a>
+        </div>
+    </header>
+
+    <main class="container">
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>
+                <a href="/" class="footer-link">~</a>
+                <span class="footer-separator">/</span>
+                <a href="/contact" class="footer-link">@</a>
+                <span class="footer-separator">/</span>
+                <a href="/" class="footer-link">♥ 2025</a>
+            </p>
+            <p class="footer-copyleft">
+                no cookies, no tracking, no popups
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    {{ $js := resources.Get "js/main.js" | resources.Minify }}
+    <script src="{{ $js.RelPermalink }}"></script>
+</body>
+</html> 
