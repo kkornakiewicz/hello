@@ -1,6 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
   const themeToggle = document.querySelector('.theme-toggle');
+  const themeToggleMenu = document.querySelector('.theme-toggle-menu');
   const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+  
+  // Function to update theme toggle text
+  function updateThemeToggleText() {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    if (themeToggleMenu) {
+      themeToggleMenu.textContent = currentTheme === 'dark' ? 'light mode' : 'dark mode';
+    }
+  }
   
   // Check for saved theme preference or use system preference
   const savedTheme = localStorage.getItem('theme');
@@ -10,16 +19,27 @@ document.addEventListener('DOMContentLoaded', function() {
     document.documentElement.setAttribute('data-theme', 'dark');
   }
   
-  // Toggle theme
+  // Initial theme toggle text update
+  updateThemeToggleText();
+  
+  // Toggle theme function
+  function toggleTheme(e) {
+    if (e) e.preventDefault();
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeToggleText();
+  }
+  
+  // Theme toggle event listeners
   if (themeToggle) {
-    themeToggle.addEventListener('click', function(e) {
-      e.preventDefault(); // Prevent the link from navigating
-      const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-    });
+    themeToggle.addEventListener('click', toggleTheme);
+  }
+  
+  if (themeToggleMenu) {
+    themeToggleMenu.addEventListener('click', toggleTheme);
   }
   
   // Close menu when clicking outside
