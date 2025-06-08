@@ -4,7 +4,7 @@ title: "contact"
 tags: []
 ---
 
-Hi,  I am Krzysztof (/ˈkʂɘʂ.tɔf/). 
+Hi,  I am Krzysztof ([/ˈkʂɘʂ.tɔf/](https://en.wiktionary.org/wiki/Krzysztof)). 
 
 I do programming thing almost twenty years, and currently live in Barcelona.  
 
