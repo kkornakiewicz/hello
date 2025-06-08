@@ -371,7 +371,7 @@ code, pre {
   &:not(.post-single) {
     display: flex;
     align-items: flex-start;
-    gap: 2rem;
+    gap: 1rem;
     
     .post-meta {
       font-family: $font-family-mono;
@@ -575,11 +575,16 @@ code, pre {
       flex-wrap: wrap;
       align-items: flex-start;
       gap: 0.5rem;
-      justify-content: flex-start;
+      margin-top: 0.5rem;
+      order: 2;
       
       time {
         margin-right: 0.5rem;
       }
+    }
+    
+    .post-title {
+      order: 1;
     }
   }
   
