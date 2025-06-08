@@ -255,7 +255,6 @@ code, pre {
           font-size: 12px;
           opacity: 0;
           visibility: hidden;
-          transition: all 0.2s ease;
           pointer-events: none;
           white-space: nowrap;
         }
@@ -285,6 +284,10 @@ code, pre {
           svg {
             transform: scale(0.8);
           }
+        }
+        
+        &:not(.copied):hover::after {
+          content: 'Copy';
         }
         
         svg {
