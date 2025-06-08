@@ -69,10 +69,31 @@ $border-color: #e2e8f0;
         color: $text-color;
         text-decoration: none;
         font-size: 1.1rem;
-        transition: color 0.2s ease;
+        transition: all 0.2s ease;
+        position: relative;
+        display: inline-block;
+        padding-left: 0;
+        
+        &::before {
+          content: '>';
+          position: absolute;
+          left: -1.2rem;
+          opacity: 0;
+          transition: all 0.2s ease;
+          color: $purple-accent;
+          display: inline-block;
+          transform: translateX(0);
+          pointer-events: none;
+        }
         
         &:hover {
           color: $purple-accent;
+          padding-left: 1.2rem;
+          
+          &::before {
+            opacity: 0.5;
+            left: 0;
+          }
         }
       }
     }
@@ -163,10 +184,32 @@ code, pre {
       text-decoration: none;
       font-family: $font-family-mono;
       font-size: 0.875rem;
-      transition: color 0.2s ease;
+      transition: all 0.2s ease;
+      position: relative;
+      display: inline-block;
+      padding-left: 0;
+      
+      &::before {
+        content: '>';
+        position: absolute;
+        left: -1.2rem;
+        opacity: 0;
+        transition: all 0.2s ease;
+        color: $purple-accent;
+        display: inline-block;
+        transform: translateX(0);
+        pointer-events: none;
+      }
       
       &:hover {
-        color: $purple-accent;
+        color: $purple-accent !important;
+        padding-left: 1.2rem;
+        
+        &::before {
+          opacity: 1;
+          left: 0;
+          transform: translateX(0);
+        }
       }
     }
   }
@@ -601,8 +644,7 @@ pre {
 }
 
 // Update all accent color references to use the static color
-a:hover,
-.nav a:hover,
+a:hover:not(.nav nav a),
 .post-title a:hover,
 .post-tags a:hover,
 .footer-link:hover {
