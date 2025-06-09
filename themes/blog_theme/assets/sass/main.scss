@@ -453,7 +453,7 @@ code, pre {
   &:not(.post-single) {
     display: flex;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 5rem;
     
     .post-meta {
       font-family: $font-family-mono;
@@ -635,7 +635,11 @@ code, pre {
   
   .post {
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0;
+    
+    &:not(.post-single) {
+      gap: 0;
+    }
     
     .post-meta {
       min-width: auto;
