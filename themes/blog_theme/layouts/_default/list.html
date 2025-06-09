@@ -6,7 +6,9 @@
     {{ range $paginator.Pages }}
     <article class="post">
         <div class="post-meta">
-            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+            <time datetime="{{ .Date.Format "2006-01-02" }}">
+                <a href="{{ .RelPermalink }}">{{ .Date.Format "2006-01-02" }}</a>
+            </time>
             {{ with .Params.tags }}
             <div class="post-tags">
                 {{ range . }}

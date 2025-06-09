@@ -1,7 +1,7 @@
 {{ define "main" }}
 <article class="post post-single">
     <h1 class="post-title">
-        {{ .Title }}
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
         <button class="copy-url" aria-label="Copy URL">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
@@ -13,7 +13,7 @@
     <div class="post-meta">
         {{ if .Date }}
         <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-            {{ .Date.Format "2006-01-02" }}
+            <a href="{{ .RelPermalink }}">{{ .Date.Format "2006-01-02" }}</a>
         </time>
         {{ end }}
         
