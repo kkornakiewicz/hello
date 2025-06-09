@@ -494,6 +494,8 @@ code, pre {
       
       time {
         display: block;
+        font-weight: 600;
+        color: var(--text-color);
       }
     }
     
@@ -508,6 +510,7 @@ code, pre {
         font-size: 0.75rem;
         transition: all 0.3s ease;
         position: relative;
+        font-weight: 400;
         
         &::after {
           content: '';
