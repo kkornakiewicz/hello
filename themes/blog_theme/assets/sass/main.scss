@@ -234,7 +234,7 @@ code, pre {
   .nav-separator {
     display: block;
     text-align: center;
-    color: #cbd5e0;
+    color: var(--text-color);
     font-family: $font-family-mono;
     font-size: 1rem;
     letter-spacing: 0.5rem;
