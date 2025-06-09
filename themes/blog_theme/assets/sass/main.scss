@@ -557,9 +557,26 @@ code, pre {
         padding: 0.2rem 0.4rem;
         margin: -0.2rem -0.4rem;
         
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: var(--purple-accent);
+          z-index: -1;
+          opacity: 0;
+          transition: all 0.2s ease;
+        }
+        
         &:hover {
           color: white;
-          background-color: var(--purple-accent);
+          
+          &::before {
+            opacity: 1;
+            transform: translate(6px, -6px);
+          }
         }
       }
     }
