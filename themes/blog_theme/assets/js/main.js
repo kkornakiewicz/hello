@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function updateThemeToggleText() {
     const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
     if (themeToggleMenu) {
-      themeToggleMenu.textContent = currentTheme === 'dark' ? 'light mode' : 'dark mode';
+      themeToggleMenu.textContent = currentTheme === 'dark' ? 'light mode 🌕' : 'dark mode 🌑';
     }
   }
   
