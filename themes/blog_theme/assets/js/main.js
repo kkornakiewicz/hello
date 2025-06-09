@@ -1,37 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
   const themeToggle = document.querySelector('.theme-toggle');
   const themeToggleMenu = document.querySelector('.theme-toggle-menu');
-  const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
   const hamburgerButton = document.querySelector('.hamburger-button');
   const hamburgerNav = document.querySelector('.hamburger-nav');
   
+  
   // Function to update theme toggle text
   function updateThemeToggleText() {
-    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     if (themeToggleMenu) {
-      themeToggleMenu.textContent = currentTheme === 'dark' ? 'light mode 🌕' : 'dark mode 🌑';
+      themeToggleMenu.textContent = isDark ? 'light mode 🌕' : 'dark mode 🌑';
     }
   }
   
   // Check for saved theme preference or use system preference
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme) {
-    document.documentElement.setAttribute('data-theme', savedTheme);
-  } else if (prefersDarkScheme.matches) {
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-  
-  // Initial theme toggle text update
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
   updateThemeToggleText();
   
   // Toggle theme function
-  function toggleTheme(e) {
-    if (e) e.preventDefault();
-    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
+  function toggleTheme() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    localStorage.setItem('theme', isDark ? 'light' : 'dark');
     updateThemeToggleText();
   }
   
@@ -44,99 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
     themeToggleMenu.addEventListener('click', toggleTheme);
   }
   
-  // Random blinking prompt animation
-  let promptInterval;
-  let hoverTimeout;
-  
-  function startPromptAnimation() {
-    const links = document.querySelectorAll('.hamburger-nav a');
-    if (!links.length) return;
-    
-    function movePrompt() {
-      // Remove prompt from all links
-      links.forEach(link => {
-        link.classList.remove('prompt-active');
-        link.setAttribute('tabindex', '-1');
-      });
-      
-      // Add prompt to random link
-      const randomLink = links[Math.floor(Math.random() * links.length)];
-      randomLink.classList.add('prompt-active');
-      randomLink.setAttribute('tabindex', '0');
-      randomLink.focus();
-    }
-    
-    // Initial prompt
-    movePrompt();
-    
-    // Move prompt every 3-5 seconds
-    promptInterval = setInterval(movePrompt, Math.random() * 2000 + 3000);
-  }
-  
-  function stopPromptAnimation() {
-    if (promptInterval) {
-      clearInterval(promptInterval);
-      promptInterval = null;
-    }
-    if (hoverTimeout) {
-      clearTimeout(hoverTimeout);
-      hoverTimeout = null;
-    }
-    document.querySelectorAll('.hamburger-nav a').forEach(link => {
-      link.classList.remove('prompt-active');
-      link.setAttribute('tabindex', '-1');
-    });
-  }
-  
-  // Add hover behavior for sidepanel links
-  if (hamburgerNav) {
-    hamburgerNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('mouseenter', () => {
-        // Clear any existing timeouts
-        if (hoverTimeout) {
-          clearTimeout(hoverTimeout);
-          hoverTimeout = null;
-        }
-        
-        // Stop the random animation
-        if (promptInterval) {
-          clearInterval(promptInterval);
-          promptInterval = null;
-        }
-        
-        // Remove prompt from all links
-        hamburgerNav.querySelectorAll('a').forEach(l => {
-          l.classList.remove('prompt-active');
-          l.setAttribute('tabindex', '-1');
-        });
-        
-        // Add prompt to hovered link
-        link.classList.add('prompt-active');
-        link.setAttribute('tabindex', '0');
-        link.focus();
-      });
-      
-      link.addEventListener('mouseleave', () => {
-        // Remove prompt from hovered link
-        link.classList.remove('prompt-active');
-        link.setAttribute('tabindex', '-1');
-        
-        // Wait 1 second before restarting random prompt animation
-        hoverTimeout = setTimeout(() => {
-          startPromptAnimation();
-        }, 1000);
-      });
-
-      // Add keyboard navigation
-      link.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' && link.classList.contains('prompt-active')) {
-          e.preventDefault();
-          link.click();
-        }
-      });
-    });
-  }
-  
   // Hamburger menu toggle
   if (hamburgerButton && hamburgerNav) {
     hamburgerButton.addEventListener('click', function() {
@@ -144,12 +42,130 @@ document.addEventListener('DOMContentLoaded', function() {
       hamburgerNav.classList.toggle('active');
       
       if (hamburgerNav.classList.contains('active')) {
-        startPromptAnimation();
+        // Make sidepanel focusable and focus it
+        hamburgerNav.setAttribute('tabindex', '0');
+        hamburgerNav.focus();
+        
+        // Clear any existing focus and set focus on first link
+        const links = hamburgerNav.querySelectorAll('a');
+        links.forEach(link => {
+          link.classList.remove('prompt-active');
+          link.setAttribute('tabindex', '-1');
+        });
+        
+        const firstLink = links[0];
+        if (firstLink) {
+          firstLink.classList.add('prompt-active');
+          firstLink.setAttribute('tabindex', '0');
+          firstLink.focus();
+        }
       } else {
-        stopPromptAnimation();
+        // Clear focus when closing
+        const links = hamburgerNav.querySelectorAll('a');
+        links.forEach(link => {
+          link.classList.remove('prompt-active');
+          link.setAttribute('tabindex', '-1');
+        });
+      }
+    });
+
+    // Add keyboard navigation to hamburger button
+    hamburgerButton.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        hamburgerButton.click();
       }
     });
   }
+  
+  // Add hover behavior for sidepanel links
+  if (hamburgerNav) {
+    const links = hamburgerNav.querySelectorAll('a');
+    
+    // Function to move focus and prompt
+    function moveFocusAndPrompt(direction) {
+      const currentIndex = Array.from(links).findIndex(link => link.classList.contains('prompt-active'));
+      let newIndex;
+      
+      if (direction === 'up') {
+        newIndex = currentIndex <= 0 ? links.length - 1 : currentIndex - 1;
+      } else {
+        newIndex = currentIndex >= links.length - 1 ? 0 : currentIndex + 1;
+      }
+      
+      // Remove prompt from all links
+      links.forEach(link => {
+        link.classList.remove('prompt-active');
+        link.setAttribute('tabindex', '-1');
+      });
+      
+      // Add prompt to new link
+      const newLink = links[newIndex];
+      newLink.classList.add('prompt-active');
+      newLink.setAttribute('tabindex', '0');
+      newLink.focus();
+    }
+
+    // Function to clear all focus
+    function clearAllFocus() {
+      links.forEach(link => {
+        link.classList.remove('prompt-active');
+        link.setAttribute('tabindex', '-1');
+      });
+    }
+    
+    // Add hover behavior to links
+    links.forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        clearAllFocus();
+        link.classList.add('prompt-active');
+        link.setAttribute('tabindex', '0');
+        link.focus();
+      });
+
+      link.addEventListener('mouseleave', () => {
+        clearAllFocus();
+        // Focus the first link when mouse leaves
+        const firstLink = links[0];
+        firstLink.classList.add('prompt-active');
+        firstLink.setAttribute('tabindex', '0');
+        firstLink.focus();
+      });
+    });
+    
+    // Add keyboard navigation to the sidepanel itself
+    hamburgerNav.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        // If no link is currently focused, focus the first one
+        if (!hamburgerNav.querySelector('.prompt-active')) {
+          clearAllFocus();
+          const firstLink = links[0];
+          firstLink.classList.add('prompt-active');
+          firstLink.setAttribute('tabindex', '0');
+          firstLink.focus();
+        } else {
+          moveFocusAndPrompt(e.key === 'ArrowUp' ? 'up' : 'down');
+        }
+      } else if (e.key === 'Escape') {
+        // Close menu on Escape key
+        hamburgerButton.classList.remove('active');
+        hamburgerNav.classList.remove('active');
+        clearAllFocus();
+        hamburgerButton.focus();
+      }
+    });
+  }
+  
+  // Global keyboard handler for space key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === ' ' && !e.target.matches('input, textarea')) {
+      e.preventDefault();
+      if (hamburgerButton) {
+        hamburgerButton.click();
+      }
+    }
+  });
   
   // Close menu when clicking outside
   document.addEventListener('click', function(event) {
@@ -158,7 +174,6 @@ document.addEventListener('DOMContentLoaded', function() {
         !hamburgerNav.contains(event.target)) {
       hamburgerButton.classList.remove('active');
       hamburgerNav.classList.remove('active');
-      stopPromptAnimation();
     }
   });
   
