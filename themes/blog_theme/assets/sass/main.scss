@@ -508,6 +508,22 @@ code, pre {
     align-items: flex-start;
     gap: 5rem;
     
+    &:hover {
+      .post-meta time::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+      
+      .post-title a {
+        color: white;
+        
+        &::before {
+          opacity: 1;
+          transform: translate(6px, -6px);
+        }
+      }
+    }
+    
     .post-meta {
       font-family: $font-family-mono;
       color: #718096;
@@ -521,6 +537,24 @@ code, pre {
         display: block;
         font-weight: 600;
         color: var(--text-color);
+        transition: all 0.2s ease;
+        position: relative;
+        display: inline-block;
+        padding: 0.2rem 0.4rem;
+        margin: -0.2rem -0.4rem;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background-color: var(--purple-accent);
+          transform: scaleX(0);
+          transform-origin: right;
+          transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
       }
     }
     
