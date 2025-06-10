@@ -115,8 +115,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Add hover behavior to links
+    let resetTimeout;
+    
     links.forEach(link => {
       link.addEventListener('mouseenter', () => {
+        // Clear any existing timeout
+        if (resetTimeout) {
+          clearTimeout(resetTimeout);
+        }
         clearAllFocus();
         link.classList.add('prompt-active');
         link.setAttribute('tabindex', '0');
@@ -124,12 +130,22 @@ document.addEventListener('DOMContentLoaded', function() {
       });
 
       link.addEventListener('mouseleave', () => {
-        clearAllFocus();
-        // Focus the first link when mouse leaves
-        const firstLink = links[0];
-        firstLink.classList.add('prompt-active');
-        firstLink.setAttribute('tabindex', '0');
-        firstLink.focus();
+        // Check if any other link is being hovered
+        const isAnyLinkHovered = Array.from(links).some(link => 
+          link.matches(':hover')
+        );
+        
+        // Only start timeout if no links are being hovered
+        if (!isAnyLinkHovered) {
+          resetTimeout = setTimeout(() => {
+            clearAllFocus();
+            // Focus the first link when mouse leaves
+            const firstLink = links[0];
+            firstLink.classList.add('prompt-active');
+            firstLink.setAttribute('tabindex', '0');
+            firstLink.focus();
+          }, 1000);
+        }
       });
     });
     
