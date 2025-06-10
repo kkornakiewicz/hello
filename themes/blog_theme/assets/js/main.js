@@ -129,24 +129,6 @@ document.addEventListener('DOMContentLoaded', function() {
         link.focus();
       });
 
-      link.addEventListener('mouseleave', () => {
-        // Check if any other link is being hovered
-        const isAnyLinkHovered = Array.from(links).some(link => 
-          link.matches(':hover')
-        );
-        
-        // Only start timeout if no links are being hovered
-        if (!isAnyLinkHovered) {
-          resetTimeout = setTimeout(() => {
-            clearAllFocus();
-            // Focus the first link when mouse leaves
-            const firstLink = links[0];
-            firstLink.classList.add('prompt-active');
-            firstLink.setAttribute('tabindex', '0');
-            firstLink.focus();
-          }, 1000);
-        }
-      });
     });
     
     // Add keyboard navigation to the sidepanel itself
